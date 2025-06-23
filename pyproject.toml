@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "misa"
+version = "0.1.0"
+description = ""
+authors = ["wijez <viet.info.43@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+selenium = "^4.33.0"
+pandas = "^2.3.0"
+numpy = "^2.3.1"
+openpyxl = "^3.1.5"
+logging = "^0.4.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
