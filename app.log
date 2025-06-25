@@ -1,12 +1,53 @@
-2025-06-23 20:32:16,344 - INFO - Ð\xe3 t\u1ea3i XML cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
-2025-06-23 20:32:18,626 - ERROR - L\u1ed7i x\u1eed l\xfd r08e17y79g - https://tracuuhoadon.fpt.com.vn/search.html: attempted relative import with no known parent package
-2025-06-23 20:32:42,262 - ERROR - L\u1ed7i khi t\u1ea3i XML cho m\xe3 r46jvxmvxg v\u1edbi MST 0304244471: e
-2025-06-23 20:32:44,441 - ERROR - L\u1ed7i x\u1eed l\xfd r46jvxmvxg - https://tracuuhoadon.fpt.com.vn/search.html: attempted relative import with no known parent package
-2025-06-23 20:33:00,270 - INFO - Ð\xe3 t\u1ea3i XML cho m\xe3 rzmwy1yo4g v\u1edbi MST 0304308445.
-2025-06-23 20:33:02,502 - ERROR - L\u1ed7i x\u1eed l\xfd rzmwy1yo4g - https://tracuuhoadon.fpt.com.vn/search.html: attempted relative import with no known parent package
-2025-06-23 20:33:12,350 - INFO - Ð\xe3 t\u1ea3i PDF cho m\xe3 B1HEIRR8N0WP.
-2025-06-23 20:33:12,468 - INFO - Ð\xe3 x\u1eed l\xfd m\xe3 B1HEIRR8N0WP.
-2025-06-23 20:33:22,751 - INFO - Invoice not found, closing popup.
-2025-06-23 20:33:22,806 - ERROR - L\u1ed7i khi x\u1eed l\xfd m\xe3 PZH_FWQ4BN3: e
-2025-06-23 20:33:36,548 - INFO - Ð\xe3 t\u1ea3i PDF cho m\xe3 VBHKSL682918.
-2025-06-23 20:33:36,644 - INFO - Ð\xe3 x\u1eed l\xfd m\xe3 VBHKSL682918.
+2025-06-25 22:59:04,703 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 22:59:15,283 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/8d69038d-f245-46bd-98e9-936ca420d825
+2025-06-25 22:59:25,624 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:06:45,203 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:06:57,161 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/a7244d9b-82a7-498f-90af-13ba44ca9009
+2025-06-25 23:07:07,402 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:09:14,199 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:09:25,911 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/90606b35-fec6-4704-b418-a70322a2b5ae
+2025-06-25 23:09:41,258 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:10:37,690 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:10:47,386 - INFO - Link hža žžn trong iframe: https://tracuuhoadon.fpt.com.vn/search.html
+2025-06-25 23:11:02,691 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:12:42,045 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:12:52,142 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/94fad196-436c-42dc-8976-016c3464e7bf
+2025-06-25 23:13:07,403 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:13:27,560 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/5efc01edeffe3de5011cb7ba7c962ef1
+2025-06-25 23:13:35,005 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:13:51,750 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/beefa795-9e43-4e30-9626-fb997e2ec5b1
+2025-06-25 23:14:07,208 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:15:57,904 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:16:11,428 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/e0627d80-0b16-4a92-b67e-dea6872ccb30
+2025-06-25 23:16:26,693 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:17:20,578 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:17:30,380 - INFO - Link hža žžn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/0bb3586f-356f-4b70-88fa-a4022e163d3f
+2025-06-25 23:17:45,604 - WARNING - Khžng t\xecm th\u1ea5y tr\u1ea1ng thži 'Hža žžn  cž hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:26:48,980 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:27:01,639 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/f63448de-cac5-4073-aeb5-9711b78701cc
+2025-06-25 23:27:25,249 - WARNING - Không t\xecm th\u1ea5y tr\u1ea1ng thái 'Hóa ðõn  có hi\u1ec7u l\u1ef1c' cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:30:44,328 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:30:57,436 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/83baa6e4-67d4-41ff-93db-05064abd2acc
+2025-06-25 23:31:21,073 - WARNING - Không t\xecm th\u1ea5y r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:32:45,669 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:32:56,129 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/a451eba6-f009-432b-8d4b-6385c735bd5c
+2025-06-25 23:33:19,675 - WARNING - Không t\xecm th\u1ea5y r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:35:42,411 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:36:01,243 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/c032f5d6-d028-4632-8646-09f9820236a1
+2025-06-25 23:37:29,673 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:37:42,065 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/ad664cb3-256c-474c-976a-7d7f459fd6ee
+2025-06-25 23:37:57,378 - WARNING - Không t\xecm th\u1ea5y r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:41:13,516 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:41:25,623 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/30d4a27a-28e8-4cb4-81d9-28536d8133b4
+2025-06-25 23:42:25,946 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:42:36,332 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/6a4e5caa-1d30-4e44-90a5-730083dcc06e
+2025-06-25 23:42:43,430 - INFO - Ð\xe3 lýu file PDF t\u1eeb blob.
+2025-06-25 23:42:43,432 - INFO - Link hóa ðõn PDF: blob:https://tracuuhoadon.fpt.com.vn/6a4e5caa-1d30-4e44-90a5-730083dcc06e
+2025-06-25 23:42:43,557 - INFO - Ð\xe3 ghi file iframe_debug.html ð\u1ec3 ki\u1ec3m tra blob iframe
+2025-06-25 23:42:43,561 - INFO - Ð\xe3 hoàn t\u1ea5t x\u1eed l\xfd cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
+2025-06-25 23:46:07,070 - INFO - Download prefs: {'download.default_directory': 'D:\\RPA_RS\\misa\\downloads', 'download.prompt_for_download': False, 'download.directory_upgrade': True, 'safebrowsing.enabled': True, 'safebrowsing.disable_download_protection': True, 'profile.default_content_settings.popups': 0, 'plugins.always_open_pdf_externally': True}
+2025-06-25 23:46:19,844 - INFO - Link hóa ðõn trong iframe: blob:https://tracuuhoadon.fpt.com.vn/c793ccf6-4a3f-4c1b-b7f2-e8bd9b75f7f7
+2025-06-25 23:46:27,008 - INFO - Ð\xe3 lýu file PDF t\u1eeb blob.
+2025-06-25 23:46:27,010 - INFO - Link hóa ðõn PDF: blob:https://tracuuhoadon.fpt.com.vn/c793ccf6-4a3f-4c1b-b7f2-e8bd9b75f7f7
+2025-06-25 23:46:27,200 - INFO - Ð\xe3 ghi file iframe_debug.html ð\u1ec3 ki\u1ec3m tra blob iframe
+2025-06-25 23:46:27,202 - INFO - Ð\xe3 hoàn t\u1ea5t x\u1eed l\xfd cho m\xe3 r08e17y79g v\u1edbi MST 0304244470.
