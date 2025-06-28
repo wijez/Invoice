@@ -1,7 +1,8 @@
 import logging
 import time
 import os
-import glob
+import pdfplumber
+import re
 from selenium import webdriver 
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
@@ -51,21 +52,57 @@ def shutdown(driver):
     except Exception as e:
         logger.error("Error shutting down the driver: %s", e)
 
-def wait_and_rename_downloaded_file(key, tax_code, ext=".pdf", timeout=30):
-    end_time = time.time() + timeout
-    file_path = None
-    while time.time() < end_time:
-        files = glob.glob(os.path.join(DOWNLOAD_DIR, f"*{ext}"))
-        if files:
-            file_path = max(files, key=os.path.getctime)
-            break
-        time.sleep(1)
-    if file_path:
-        new_name = os.path.join(DOWNLOAD_DIR, f"{key}_{tax_code}{ext}")
-        try:
-            os.rename(file_path, new_name)
-            logger.info("Đã đổi tên file thành: %s", new_name)
-        except Exception as e:
-            logger.error("Không thể đổi tên file: %s", e)
-    else:
-        logger.warning("Không tìm thấy file để đổi tên sau khi tải: %s", ext)
+
+
+def extract_invoice_info(pdf_path):
+    data = {
+        "Số hóa đơn": None,
+        "Đơn vị bán hàng": None,
+        "MST bán": None,
+        "Địa chỉ bán": None,
+        "STK bán": None,
+        "Họ tên người mua": None,
+        "Địa chỉ mua": None,
+        "MST mua": None
+    }
+
+    with pdfplumber.open(pdf_path) as pdf:
+        text = ""
+        for page in pdf.pages:
+            text += page.extract_text() + "\n"
+
+    # Xử lý regex từng trường
+    data["Số hóa đơn"] = re.search(r"Số [\s\(]?hóa đơn[\s\)]*[:\-]?\s*(\S+)", text, re.IGNORECASE)
+    data["Đơn vị bán hàng"] = re.search(r"Đơn vị bán hàng\s*[:\-]?\s*(.+)", text)
+    data["MST bán"] = re.search(r"Mã số thuế\s*[:\-]?\s*(\d+)", text)
+    data["Địa chỉ bán"] = re.search(r"Địa chỉ\s*[:\-]?\s*(.+)", text)
+    data["STK bán"] = re.search(r"Số tài khoản\s*[:\-]?\s*(.+)", text)
+    data["Họ tên người mua"] = re.search(r"Họ tên người mua hàng\s*[:\-]?\s*(.+)", text)
+    data["Địa chỉ mua"] = re.search(r"Địa chỉ.*?[:\-]?\s*(.+)", text)
+    data["MST mua"] = re.search(r"Mã số thuế.*?[:\-]?\s*(\d+)", text)
+
+    # Làm sạch kết quả
+    for k, v in data.items():
+        data[k] = v.group(1).strip() if v else "Không tìm thấy"
+
+    return data
+
+
+def extract_pdf_fields(pdf_path):
+    with pdfplumber.open(pdf_path) as pdf:
+        text = "\n".join(page.extract_text() for page in pdf.pages)
+
+    def extract(pattern, name):
+        match = re.search(pattern, text)
+        return match.group(1).strip() if match else f"[Không tìm thấy {name}]"
+
+    return {
+        "Số hóa đơn": extract(r"Số\s*(?:hóa đơn)?[:\-]?\s*(\w+)", "số hóa đơn"),
+        "Đơn vị bán hàng": extract(r"Đơn vị bán hàng.*?:\s*(.+)", "đơn vị bán hàng"),
+        "MST bán": extract(r"Mã số thuế.*?:\s*(\d+)", "mst bán"),
+        "Địa chỉ bán": extract(r"Địa chỉ.*?:\s*(.+)", "địa chỉ bán"),
+        "STK bán": extract(r"Số tài khoản.*?:\s*(.+)", "stk bán"),
+        "Họ tên người mua": extract(r"Họ tên người mua hàng.*?:\s*(.+)", "người mua"),
+        "Địa chỉ mua": extract(r"Địa chỉ.*?:\s*(.+)", "địa chỉ mua"),
+        "MST mua": extract(r"Mã số thuế.*?:\s*(\d+)", "mst mua"),
+    }

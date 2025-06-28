@@ -14,6 +14,7 @@ close_btn_xpath = '//*[@id="showPopupInvoicNotExist"]/div[4]/button'
 download_xpath = '//*[@id="popup-content-container"]/div[1]/div[2]/div[12]/div' 
 menu_xpath = '//*[@id="pnResult"]/div[1]/div[1]/div[2]'
 download_pdf_xpath = '//*[@id="popup-content-container"]/div[1]/div[2]/div[12]/div/div/div[1]'
+download_xml_xpath = '//*[@id="popup-content-container"]/div[1]/div[2]/div[12]/div/div/div[2]'
 x_btn_xpath = '//*[@id="pnResult"]/div[1]/div[2]/div[2]'
 
 
@@ -43,10 +44,11 @@ def download(driver, key):
         if download_btns and download_btns[0].is_displayed() and download_btns[0].is_enabled():
             driver.execute_script("arguments[0].scrollIntoView();", download_btns[0])
             download_btns[0].click()
+            time.sleep(3)
             pdf_btns = driver.find_elements(By.XPATH, download_pdf_xpath)
             if pdf_btns:
                 pdf_btns[0].click()
-                time.sleep(2)
+                time.sleep(5)
                 logger.info("Đã tải PDF cho mã %s.", key)
             else:
                 logger.info("Không tìm thấy nút tải PDF cho mã %s.", key)
@@ -84,7 +86,7 @@ def process_invoice(key, webpath):
     driver = setup(webpath)
     try:
         download(driver, key)
-        time.sleep(2)
+        time.sleep(3)
     finally:
         shutdown(driver)
 

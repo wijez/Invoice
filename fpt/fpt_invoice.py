@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from utils import setup, shutdown, logger, wait_and_rename_downloaded_file, DOWNLOAD_DIR
+from utils import setup, shutdown, logger, DOWNLOAD_DIR
 import time
 import base64
 import pyautogui
@@ -22,12 +22,13 @@ save_btn_xpath = [
             '//button[.//svg[@width="20" and @height="20"]]',
             '//button[@data-element-focusable="true" and .//div[contains(@class, "c0168")]]'
         ]
+iframe_xpath = '//div[@view_id="search:ipdf"]//iframe'
 
 
-def get_invoice_iframe_src(driver):
+def get_invoice_iframe_src(driver, iframe_xpath):
     try:
         iframe = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//div[@view_id="search:ipdf"]//iframe'))
+            EC.presence_of_element_located((By.XPATH, iframe_xpath))
         )
         src = iframe.get_attribute("src")
         logger.info(f"Link hóa đơn trong iframe: {src}")
@@ -52,10 +53,11 @@ def download(driver, key, tax_code):
         ).click()
         time.sleep(4)
         
-        invoice_src, iframe = get_invoice_iframe_src(driver)
-        iframe = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//div[@view_id="search:ipdf"]//iframe'))
-        )
+        invoice_src, iframe = get_invoice_iframe_src(driver, iframe_xpath)
+        if not invoice_src:
+            logger.error(f"Không tìm thấy iframe cho mã {key}.")
+            return
+
         driver.switch_to.frame(iframe)
         time.sleep(5)
         js = """
@@ -87,6 +89,10 @@ def download(driver, key, tax_code):
         logger.info("Đã ghi file iframe_debug.html để kiểm tra blob iframe")
 
         driver.switch_to.default_content()
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, xml_xpath))
+        ).click()
+        time.sleep(2)
         logger.info("Đã hoàn tất xử lý cho mã %s với MST %s.", key, tax_code)
 
     except TimeoutException:

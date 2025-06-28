@@ -6,11 +6,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 from utils import setup, shutdown, logger
 from misa.misa_invoice import process_invoice as process_misa
 from fpt.fpt_invoice import process_invoice as process_fpt
-# from e_hoadon.e_hoadon_invoice import process_invoice as process_ehoadon
+from e_hoadon.e_hoadon_invoice import process_invoice as process_ehoadon
+
 
 
 
@@ -30,27 +32,37 @@ def get_codes(filepath):
                                  )
     return df, code_url_list
 
+
+def process_row(args):
+    index, key, tax_code, webpath = args
+    result = ''
+    try:
+        if "meinvoice.vn" in webpath:
+            process_misa(key, webpath)  
+            result = "Success"
+        elif "tracuuhoadon.fpt.com.vn" in webpath:
+            result = process_fpt(key, tax_code, webpath) 
+        elif "van.ehoadon.vn" in webpath:
+            process_ehoadon(key, webpath)  
+            result = "Success"
+        else:
+            result = 'unsupported'
+    except Exception as e:
+        logging.error("Lỗi xử lý %s - %s: %s", key, webpath, e)
+        result = 'failed'
+    return (index, result)
+
+
 if __name__ == "__main__":
     df, code_url_list = get_codes("input.xlsx")
 
-    for index, key, tax_code, webpath in code_url_list:
-        result = ''
-        try:
-            if "meinvoice.vn" in webpath:
-                process_misa(key, webpath)  
-            elif "tracuuhoadon.fpt.com.vn" in webpath:
-                result = process_fpt(key, tax_code, webpath) 
-            # elif "van.ehoadon.vn" in webpath:
-            #     # process_ehoadon(key, tax_code, webpath)  
-            #     pass
-            else:
-                result = 'unsupported'
-        except Exception as e:
-            logging.error("Lỗi xử lý %s - %s: %s", key, webpath, e)
-            result = 'failed'
+    results = []
 
-        if result != "Success":
-            df.at[index, 'status'] = result or ''
+    with ProcessPoolExecutor() as executor:
+        future_to_index = {executor.submit(process_row, args): args[0] for args in code_url_list}
+        for future in as_completed(future_to_index):
+            index, result = future.result()
+            if result != "Success":
+                df.at[index, 'status'] = result or ''
 
     df.to_excel("output.xlsx", index=False)
-
