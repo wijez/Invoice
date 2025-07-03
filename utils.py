@@ -3,16 +3,20 @@ import time
 import os
 import pdfplumber
 import re
+import glob
 from selenium import webdriver 
-from selenium.webdriver.edge.options import Options
-from selenium.webdriver.edge.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 DOWNLOAD_DIR = r"D:\RPA_RS\misa\downloads"
-
+# DOWNLOAD_DIR = r"C:\Users\vieti\Downloads\pdf_xml"
 logging.basicConfig(
-    filename='app.log',
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log", encoding="utf-8"),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 
@@ -24,8 +28,10 @@ def setup(webpath):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-popup-blocking")
     # options.add_argument("--log-level=3")
+    # options.add_argument("--incognito")
     options.add_argument("--start-maximized")
     options.add_argument("--safebrowsing-disable-download-protection")
+    options.add_argument("--headless=new")
 
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
@@ -42,7 +48,7 @@ def setup(webpath):
     options.add_experimental_option("prefs", prefs)
 
     service = Service()
-    driver = webdriver.Edge(service=service, options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.get(webpath)
     return driver
 
@@ -106,3 +112,44 @@ def extract_pdf_fields(pdf_path):
         "Địa chỉ mua": extract(r"Địa chỉ.*?:\s*(.+)", "địa chỉ mua"),
         "MST mua": extract(r"Mã số thuế.*?:\s*(\d+)", "mst mua"),
     }
+    
+
+def wait_for_file_complete(filepath, timeout=60):
+    """
+    Chờ file hoàn tất tải xuống (không còn .crdownload/.part/.tmp).
+    """
+    waited = 0
+    partial_exts = ['.crdownload', '.part', '.tmp']
+    while waited < timeout:
+        if os.path.exists(filepath) and not any(os.path.exists(filepath + ext) for ext in partial_exts):
+            return True
+        time.sleep(1)
+        waited += 1
+    return False
+
+
+def rename_latest_xml_file(key: str, tax_code: str, download_dir: str = DOWNLOAD_DIR) -> str | None:
+    """
+    Tìm file XML mới nhất đã tải và đổi tên thành {key}_{tax_code}.xml
+    Trả về đường dẫn file mới nếu thành công, ngược lại trả về None.
+    """
+    downloaded = sorted(
+        glob.glob(os.path.join(download_dir, "*.xml")),
+        key=os.path.getctime,
+        reverse=True
+    )
+
+    for f in downloaded:
+        if wait_for_file_complete(f):
+            new_path = os.path.join(download_dir, f"{key}_{tax_code}.xml")
+            try:
+                os.rename(f, new_path)
+                logger.info(f"Đã đổi tên file XML thành: {new_path}")
+                return new_path
+            except Exception as e:
+                logger.error(f"Lỗi khi đổi tên file {f} thành {new_path}: {e}")
+                return None
+
+    logger.warning(f"Không tìm thấy file XML sau khi tải cho {key}")
+    return None
+

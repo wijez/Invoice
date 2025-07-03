@@ -17,6 +17,8 @@ pyscreeze = "^1.0.1"
 opencv-python = "^4.11.0.86"
 requests = "^2.32.4"
 pdfplumber = "^0.11.7"
+pypdf2 = "^3.0.1"
+xmltodict = "^0.14.2"
 
 
 [build-system]
